@@ -15,7 +15,7 @@ import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
         key = FEATURES_PROPERTY_NAME,
         value = "classpath:features"
 )
-public class CucumberTestRunner {
+public class CucumberTest {
 
 
 
