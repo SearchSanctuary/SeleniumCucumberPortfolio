@@ -12,11 +12,14 @@ import static org.junit.jupiter.api.Assertions.*;
 
 public class LoginSteps {
 
-    private LoginPage loginPage = new LoginPage(DriverManager.getDriver());
-    private ProductsPage productsPage = new ProductsPage(DriverManager.getDriver());
+    private LoginPage loginPage;
+    private ProductsPage productsPage;
 
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
+        loginPage = new LoginPage(DriverManager.getDriver());
+        productsPage = new ProductsPage(DriverManager.getDriver());
+
         loginPage.open();
     }
 

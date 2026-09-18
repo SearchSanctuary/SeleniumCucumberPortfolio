@@ -15,6 +15,14 @@ import static io.cucumber.core.options.Constants.GLUE_PROPERTY_NAME;
         key = FEATURES_PROPERTY_NAME,
         value = "classpath:features"
 )
+@ConfigurationParameter(
+        key = "cucumber.execution.parallel.enabled",
+        value = "true"
+)
+@ConfigurationParameter(
+        key = "cucumber.execution.parallel.config.fixed.parallelism",
+        value = "2"
+)
 public class CucumberTest {
 
 
