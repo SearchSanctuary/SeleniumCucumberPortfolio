@@ -27,9 +27,16 @@ public class ProductsPage {
         ).isDisplayed();
     }
 
-    public void addProductToCart() {
+    public void addProductToCart(String productName) {
+        By addToCartButton = By.xpath(
+                "//div[@data-test='inventory-item-name' " +
+                        "and text()='"
+                + productName
+                +"']/ancestor::div[@data-test='inventory-item-description']//button"
+        );
+
         wait.until(
-                ExpectedConditions.visibilityOfElementLocated(backpackAddToCart)
+                ExpectedConditions.visibilityOfElementLocated(addToCartButton)
         ).click();
     }
 

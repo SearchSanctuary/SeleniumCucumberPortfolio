@@ -21,8 +21,8 @@ public class CartSteps {
         cartPage = new CartPage(DriverManager.getDriver());
     }
 
-    @Then("I should see the backpack in the cart")
-    public void iShouldSeeTheBackpackInTheCart() {
-        assertTrue(cartPage.isBackpackDisplayed());
+    @Then("I should see the {string} in the cart")
+    public void iShouldSeeTheProductInTheCart(String productName) {
+        assertTrue(cartPage.isProductDisplayed(productName));
     }
 }

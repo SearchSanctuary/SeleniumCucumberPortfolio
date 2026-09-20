@@ -19,7 +19,12 @@ public class CartPage {
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Config.EXPLICIT_WAIT_SECONDS));
     }
 
-    public boolean isBackpackDisplayed(){
+    public boolean isProductDisplayed(String productName){
+        By product = By.xpath(
+                "//div[@data-test='inventory-item-name' " +
+                        "and text()='"
+                + productName + "']"
+        );
         return wait.until(
                 ExpectedConditions.visibilityOfElementLocated(backpackItem)
         ).isDisplayed();
