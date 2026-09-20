@@ -13,6 +13,8 @@ public class ProductsPage {
     private final WebDriverWait wait;
 
     private final By productTitle = By.className("title");
+    private final By backpackAddToCart = By.id("add-to-cart-sauce-labs-backpack");
+    private final By cartLink = By.className("shopping_cart_link");
 
     public ProductsPage(WebDriver driver){
         this.driver = driver;
@@ -23,5 +25,17 @@ public class ProductsPage {
         return wait.until(
                 ExpectedConditions.visibilityOfElementLocated(productTitle)
         ).isDisplayed();
+    }
+
+    public void addProductToCart() {
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(backpackAddToCart)
+        ).click();
+    }
+
+    public void openShoppingCart() {
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(cartLink)
+        ).click();
     }
 }

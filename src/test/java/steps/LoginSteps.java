@@ -18,8 +18,6 @@ public class LoginSteps {
     @Given("I am on the login page")
     public void iAmOnTheLoginPage() {
         loginPage = new LoginPage(DriverManager.getDriver());
-        productsPage = new ProductsPage(DriverManager.getDriver());
-
         loginPage.open();
     }
 
@@ -39,13 +37,13 @@ public class LoginSteps {
 
     @Then("I should see the products page")
     public void iShouldSeeTheProductsPage() {
+        productsPage = new ProductsPage(DriverManager.getDriver());
         assertTrue(productsPage.isDisplayed());
     }
 
     @Then("I should see a login error")
     public void iShouldSeeALoginError() {
         assertTrue(loginPage.isLoginErrorDisplayed());
-
         assertEquals(
                 "Epic sadface: Username and password do not match any user in this service",
                 loginPage.getLoginErrorMessage()
