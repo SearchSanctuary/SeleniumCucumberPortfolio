@@ -4,6 +4,7 @@ import config.Config;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 import org.openqa.selenium.chrome.ChromeOptions;
+import org.openqa.selenium.safari.SafariDriver;
 
 public class DriverManager {
 
@@ -11,13 +12,25 @@ public class DriverManager {
 
     public static void startDriver() {
         if (driver.get() == null){
-            ChromeOptions options = new ChromeOptions();
 
-            if (Config.HEADLESS){
-                options.addArguments("--headless=new");
+            /* Start browser based on given browser type */
+            if (Config.BROWSER.equalsIgnoreCase("chrome")){
+                /* Set options for driver */
+                ChromeOptions options = new ChromeOptions();
+                if (Config.HEADLESS){
+                    options.addArguments("--headless=new");
+                }
+                driver.set(new ChromeDriver(options));
+
+            } else if (Config.BROWSER.equalsIgnoreCase("safari")){
+                driver.set(new SafariDriver());
+
+            } else {
+                throw new IllegalArgumentException(
+                        "Unsupported browser: " + Config.BROWSER
+                );
             }
 
-            driver.set(new ChromeDriver(options));
         }
 
     }

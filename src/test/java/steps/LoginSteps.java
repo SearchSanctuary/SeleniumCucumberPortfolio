@@ -6,7 +6,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.LoginPage;
 import pages.ProductsPage;
-import testdata.TestData;
+import testdata.LoginTestData;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -25,15 +25,15 @@ public class LoginSteps {
 
     @When("I login with valid credentials")
     public void iLogInWithValidCredentials() {
-        loginPage.enterUsername(TestData.VALID_USERNAME);
-        loginPage.enterPassword(TestData.VALID_PASSWORD);
+        loginPage.enterUsername(LoginTestData.VALID_USERNAME);
+        loginPage.enterPassword(LoginTestData.VALID_PASSWORD);
         loginPage.clickLogin();
     }
 
     @When("I login with invalid credentials")
     public void iLogInWithInvalidCredentials() {
-        loginPage.enterUsername(TestData.INVALID_USERNAME);
-        loginPage.enterPassword(TestData.INVALID_PASSWORD);
+        loginPage.enterUsername(LoginTestData.INVALID_USERNAME);
+        loginPage.enterPassword(LoginTestData.INVALID_PASSWORD);
         loginPage.clickLogin();
     }
 
