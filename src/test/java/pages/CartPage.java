@@ -12,21 +12,21 @@ public class CartPage {
     private final WebDriver driver;
     private final WebDriverWait wait;
 
-    private final By backpackItem = By.id("item_4_title_link");
-
     public CartPage(WebDriver driver) {
         this.driver = driver;
         this.wait = new WebDriverWait(driver, Duration.ofSeconds(Config.EXPLICIT_WAIT_SECONDS));
     }
 
-    public boolean isProductDisplayed(String productName){
+    public boolean containsProduct(String productName){
         By product = By.xpath(
                 "//div[@data-test='inventory-item-name' " +
                         "and text()='"
                 + productName + "']"
         );
         return wait.until(
-                ExpectedConditions.visibilityOfElementLocated(backpackItem)
+                ExpectedConditions.visibilityOfElementLocated(product)
         ).isDisplayed();
     }
+
+
 }

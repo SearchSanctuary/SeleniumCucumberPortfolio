@@ -6,6 +6,7 @@ Feature: Cart
     Given I am on the login page
     When I login with valid credentials
     And I add the "<product>" to the cart
+    And The cart should contain 1 item
     And I open the shopping cart
     Then I should see the "<product>" in the cart
 

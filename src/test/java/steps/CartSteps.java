@@ -23,6 +23,6 @@ public class CartSteps {
 
     @Then("I should see the {string} in the cart")
     public void iShouldSeeTheProductInTheCart(String productName) {
-        assertTrue(cartPage.isProductDisplayed(productName));
+        assertTrue(cartPage.containsProduct(productName));
     }
 }
