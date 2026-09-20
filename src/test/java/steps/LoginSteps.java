@@ -32,8 +32,8 @@ public class LoginSteps {
 
     @When("I login with invalid credentials")
     public void iLogInWithInvalidCredentials() {
-        loginPage.enterUsername("invalid_user");
-        loginPage.enterPassword("invalid_password");
+        loginPage.enterUsername(TestData.INVALID_USERNAME);
+        loginPage.enterPassword(TestData.INVALID_PASSWORD);
         loginPage.clickLogin();
     }
 
