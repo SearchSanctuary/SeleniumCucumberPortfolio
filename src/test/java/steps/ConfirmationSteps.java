@@ -10,7 +10,7 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class ConfirmationSteps {
 
-    OrderConfirmationPage confirmationPage;
+    private OrderConfirmationPage confirmationPage;
 
     @Then("I should see the order confirmation")
     public void iShouldSeeTheOrderConfirmation() {

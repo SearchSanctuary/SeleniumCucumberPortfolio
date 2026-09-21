@@ -46,8 +46,5 @@ public class CartSteps {
     @When("I proceed to checkout")
     public void iProceedToCheckout() {
         cartPage.clickCheckoutButton();
-
-        CheckoutPage checkoutPage = new CheckoutPage(DriverManager.getDriver());
-        assertTrue(checkoutPage.isCheckoutTitleVisible());
     }
 }

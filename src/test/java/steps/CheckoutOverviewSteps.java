@@ -19,7 +19,9 @@ public class CheckoutOverviewSteps {
 
     @Then("The order should contain {string}")
     public void orderShouldContainProduct(String productName) {
-        if (overviewPage == null) { overviewPage = new CheckoutOverviewPage(DriverManager.getDriver()); }
+        if (overviewPage == null) {
+            overviewPage = new CheckoutOverviewPage(DriverManager.getDriver());
+        }
 
         assertTrue(overviewPage.containsProduct(productName));
     }

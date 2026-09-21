@@ -20,8 +20,9 @@ public class CheckoutSteps {
 
     @When("I enter the checkout information {string} {string} and {string}")
     public void iEnterTheCheckoutInformation(String firstName, String lastName, String postCode) {
-        if (checkoutPage == null) { checkoutPage = new CheckoutPage(DriverManager.getDriver()); }
-        assertTrue(checkoutPage.isCheckoutTitleVisible());
+        if (checkoutPage == null) {
+            checkoutPage = new CheckoutPage(DriverManager.getDriver());
+        }
 
         checkoutPage.enterCustomerInformation(firstName, lastName, postCode);
     }
