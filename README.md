@@ -118,7 +118,7 @@ src/test/
 
 ## Test Design
 
-The suite focuses on meaningful user journeys rather than maximising raw test count, and covers both positive and negative paths.
+The suite focuses on meaningful user journeys rather than maximising raw test count, and covers both positive and negative paths. It currently runs 12 scenarios end to end in around 31-35 seconds.
 
 **Login**
 
