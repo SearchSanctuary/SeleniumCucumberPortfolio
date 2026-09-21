@@ -19,10 +19,21 @@ public class CartSteps {
         productsPage.openShoppingCart();
 
         cartPage = new CartPage(DriverManager.getDriver());
+        assertTrue(cartPage.isDisplayed());
     }
 
     @Then("I should see the {string} in the cart")
     public void iShouldSeeTheProductInTheCart(String productName) {
         assertTrue(cartPage.containsProduct(productName));
+    }
+
+    @When("I remove the {string} from the cart")
+    public void iRemoveTheProductFromCart(String productName) {
+        cartPage.removeProduct(productName);
+    }
+
+    @Then("I should not see the {string} in the cart")
+    public void iShouldNotSeeTheProductInTheCart(String productName) {
+        assertTrue(cartPage.doesNotContainProduct(productName));
     }
 }

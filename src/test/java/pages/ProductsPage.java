@@ -2,7 +2,10 @@ package pages;
 
 import config.Config;
 import org.openqa.selenium.By;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.WebElement;
+import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
@@ -35,9 +38,29 @@ public class ProductsPage {
                 +"']/ancestor::div[@data-test='inventory-item-description']//button"
         );
 
-        wait.until(
+        WebElement addButton = wait.until(
                 ExpectedConditions.visibilityOfElementLocated(addToCartButton)
-        ).click();
+        );
+
+        // Native Selenium clicks were unreliable for this application,
+        // so JavaScript click is used after waiting for the button to be clickable.
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].scrollIntoView({block: 'center'});",
+                addButton
+        );
+
+        ((JavascriptExecutor) driver).executeScript(
+                "arguments[0].click();",
+                addButton
+        );
+
+        // Verify the item has been added
+        By removeFromCartButton = By.id(
+                "remove-" + productName.toLowerCase().replace(" ", "-"));
+
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(removeFromCartButton)
+        );
     }
 
     public void openShoppingCart() {
