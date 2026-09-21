@@ -19,6 +19,7 @@ public class CheckoutPage {
     private final By postalCodeInput = By.id("postal-code");
     private final By cancelButton = By.id("cancel");
     private final By continueButton = By.id("continue");
+    private final By checkoutError = By.cssSelector("[data-test='error']");
 
     public CheckoutPage(WebDriver driver) {
         this.driver = driver;
@@ -68,6 +69,12 @@ public class CheckoutPage {
         wait.until(
                 ExpectedConditions.elementToBeClickable(continueButton)
         ).click();
+    }
+
+    public String getCheckoutErrorMessage() {
+        return wait.until(
+                ExpectedConditions.visibilityOfElementLocated(checkoutError)
+        ).getText();
     }
 
 

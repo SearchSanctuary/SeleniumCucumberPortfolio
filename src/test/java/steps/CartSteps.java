@@ -23,6 +23,11 @@ public class CartSteps {
         assertTrue(cartPage.isDisplayed());
     }
 
+    @Then("I should see the cart page")
+    public void iShouldSeeTheCartPage() {
+        assertTrue(cartPage.isDisplayed());
+    }
+
     @Then("I should see the {string} in the cart")
     public void iShouldSeeTheProductInTheCart(String productName) {
         assertTrue(cartPage.containsProduct(productName));

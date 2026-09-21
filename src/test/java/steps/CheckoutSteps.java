@@ -5,6 +5,7 @@ import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CheckoutPage;
 
+import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class CheckoutSteps {
@@ -30,5 +31,16 @@ public class CheckoutSteps {
         checkoutPage.clickContinueButton();
     }
 
+    @Then("I should see the checkout error {string}")
+    public void iShouldSeeTheCheckoutError(String expectedMessage) {
+        assertEquals(
+                expectedMessage,
+                checkoutPage.getCheckoutErrorMessage());
+    }
+
+    @When("I click the back button")
+    public void iClickTheBackButton() {
+        checkoutPage.clickBackButton();
+    }
 
 }

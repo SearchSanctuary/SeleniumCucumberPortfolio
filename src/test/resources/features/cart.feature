@@ -17,6 +17,7 @@ Feature: Cart
     | Sauce Labs Bike Light |
     | Sauce Labs Bolt T-Shirt |
 
+  @smoke
   @cart
   Scenario Outline: Remove item from cart
     Given I am on the login page
