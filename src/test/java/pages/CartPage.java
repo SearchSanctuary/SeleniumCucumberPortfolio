@@ -16,6 +16,7 @@ public class CartPage {
     private final WebDriverWait wait;
 
     private final By cartTitle = By.className("title");
+    private final By checkoutButton = By.id("checkout");
 
     public CartPage(WebDriver driver) {
         this.driver = driver;
@@ -74,5 +75,11 @@ public class CartPage {
                                 product.getText().equals(productName)
                         )
         );
+    }
+
+    public void clickCheckoutButton() {
+        wait.until(
+                ExpectedConditions.visibilityOfElementLocated(checkoutButton)
+        ).click();
     }
 }

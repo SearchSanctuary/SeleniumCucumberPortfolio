@@ -20,6 +20,14 @@ public class DriverManager {
                 if (Config.HEADLESS){
                     options.addArguments("--headless=new");
                 }
+                options.addArguments("--disable-features=PasswordLeakDetection");
+                options.setExperimentalOption(
+                        "prefs",
+                        java.util.Map.of(
+                                "profile.password_manager_leak_detection",
+                                false
+                        )
+                );
                 driver.set(new ChromeDriver(options));
 
             } else if (Config.BROWSER.equalsIgnoreCase("safari")){

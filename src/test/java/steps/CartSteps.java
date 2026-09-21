@@ -4,6 +4,7 @@ import hooks.DriverManager;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 import pages.CartPage;
+import pages.CheckoutPage;
 import pages.ProductsPage;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
@@ -35,5 +36,13 @@ public class CartSteps {
     @Then("I should not see the {string} in the cart")
     public void iShouldNotSeeTheProductInTheCart(String productName) {
         assertTrue(cartPage.doesNotContainProduct(productName));
+    }
+
+    @When("I proceed to checkout")
+    public void iProceedToCheckout() {
+        cartPage.clickCheckoutButton();
+
+        CheckoutPage checkoutPage = new CheckoutPage(DriverManager.getDriver());
+        assertTrue(checkoutPage.isCheckoutTitleVisible());
     }
 }
